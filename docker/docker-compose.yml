@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  ganache-node:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - 8545:8545
+    entrypoint:
+      - node
+      - ./ganache-core.docker.cli.js
+      - --deterministic
+      - --db=/ganache_data
+      - --mnemonic
+      - 'minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef'
+      - --networkId
+      - '5777'
+      - --hostname
+      - '0.0.0.0'
+      - --debug
+    volumes:
+      - ganache_data-volume:/ganache_data
+
+volumes:
+  ganache_data-volume:
