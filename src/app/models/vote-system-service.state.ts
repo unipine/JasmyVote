@@ -1,8 +1,8 @@
+import {MyIdentityModel} from './my-identity.model';
+
 export class VoteSystemServiceState {
     isInitialized: boolean;
-    isOwner: boolean;
-    isIssuer: boolean;
-    isCandidate: boolean;
+    identity: MyIdentityModel;
     contractAbi: any;
     contractAddress: string;
     contract: any;

@@ -12,18 +12,25 @@ contract VoteManagement is Ownable {
     address[] issuers;
     address[] candidates;
 
-    modifier onlyIssuer(){
+    modifier issuerCondition(address recipient){
         require(isIssuer[msg.sender] == true);
+        require(isIssuer[recipient] == false);
+        require(isCandidate[recipient] == false);
         _;
     }
 
-    function addIssuer(address _issuer) public onlyOwner {
+    modifier notOwner(address target){
+        require(target != _owner);
+        _;
+    }
+
+    function addIssuer(address _issuer) public onlyOwner notOwner(_issuer) {
         isIssuer[_issuer] = true;
         issuers.push(_issuer);
         emit IssuerAdded(_issuer);
     }
 
-    function addCandidate(address _candidate) public onlyOwner {
+    function addCandidate(address _candidate) public onlyOwner notOwner(_candidate) {
         isCandidate[_candidate] = true;
         candidates.push(_candidate);
         emit CandidateAdded(_candidate);
