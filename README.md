@@ -12,11 +12,11 @@ The candidate itself cannot reuse the votes transferred to him and at the end of
 #### Voting Process Diagram
 ![Decentralized Voting System](docs/decentralized_voting_system.png)
 
-# Advantages of using a Blockchain for a voting system
+## Advantages of using a Blockchain for a voting system
 - The voting process is transparent and clearly defined
 - The double-spending of votes is not possible
 
-# Disadvantages of using a Blockchain for a voting system
+## Disadvantages of using a Blockchain for a voting system
 - Voter anonymity is compromised even though we use only a public address
 - Each voting action costs ether
 
